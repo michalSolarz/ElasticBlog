@@ -1,0 +1,37 @@
+2016/10/04 14:50:54 [error] 7#0: *1 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Unable to create the cache directory (/var/www/symfony/var/cache/prod)
+' in /var/www/symfony/var/bootstrap.php.cache:1660
+Stack trace:
+#0 /var/www/symfony/var/bootstrap.php.cache(1621): Symfony\Component\HttpKernel\Kernel->buildContainer()
+#1 /var/www/symfony/var/bootstrap.php.cache(1410): Symfony\Component\HttpKernel\Kernel->initializeContainer()
+#2 /var/www/symfony/var/bootstrap.php.cache(1441): Symfony\Component\HttpKernel\Kernel->boot()
+#3 /var/www/symfony/web/app.php(16): Symfony\Component\HttpKernel\Kernel->handle(Object(Symfony\Component\HttpFoundation\Request))
+#4 {main}
+  thrown in /var/www/symfony/var/bootstrap.php.cache on line 1660" while reading response header from upstream, client: ::ffff:172.19.0.1, server: symfony.dev, request: "GET / HTTP/1.1", upstream: "fastcgi://172.19.0.3:9001", host: "localhost:8080"
+2016/10/04 14:52:33 [error] 7#0: *1 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Call to undefined function Symfony\Component\Config\ctype_alpha() in /var/www/symfony/vendor/symfony/symfony/src/Symfony/Component/Config/FileLocator.php on line 85" while reading response header from upstream, client: ::ffff:172.19.0.1, server: symfony.dev, request: "GET / HTTP/1.1", upstream: "fastcgi://172.19.0.3:9001", host: "localhost:8080"
+2016/10/04 14:54:24 [error] 8#0: *1 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Class 'DOMDocument' not found in /var/www/symfony/vendor/symfony/symfony/src/Symfony/Component/Config/Util/XmlUtils.php on line 52" while reading response header from upstream, client: ::ffff:172.19.0.1, server: symfony.dev, request: "GET / HTTP/1.1", upstream: "fastcgi://172.19.0.3:9001", host: "localhost:8080"
+2016/10/04 14:56:56 [error] 6#0: *1 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Session Storage was not able to create directory "/var/www/symfony/app/../var/sessions/prod"' in /var/www/symfony/vendor/symfony/symfony/src/Symfony/Component/HttpFoundation/Session/Storage/Handler/NativeFileSessionHandler.php:52
+Stack trace:
+#0 /var/www/symfony/var/cache/prod/appProdProjectContainer.php(2131): Symfony\Component\HttpFoundation\Session\Storage\Handler\NativeFileSessionHandler->__construct('/var/www/symfon...')
+#1 /var/www/symfony/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Container.php(274): appProdProjectContainer->getSession_HandlerService()
+#2 /var/www/symfony/var/cache/prod/appProdProjectContainer.php(2170): Symfony\Component\DependencyInjection\Container->get('session.handler')
+#3 /var/www/symfony/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Container.php(274): appProdProjectContainer->getSession_Storage_NativeService()
+#4 /var/www/symfony/var/cache/prod/appProd" while reading response header from upstream, client: ::ffff:172.19.0.1, server: symfony.dev, request: "GET / HTTP/1.1", upstream: "fastcgi://172.19.0.3:9001", host: "localhost:8080"
+2016/10/04 15:10:40 [error] 7#0: *1 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'The stream or file "/var/www/symfony/var/logs/prod.log" could not be opened: failed to open stream: Permission denied' in /var/www/symfony/var/cache/prod/classes.php:6478
+Stack trace:
+#0 /var/www/symfony/var/cache/prod/classes.php(6408): Monolog\Handler\StreamHandler->write(Array)
+#1 /var/www/symfony/var/cache/prod/classes.php(6592): Monolog\Handler\AbstractProcessingHandler->handle(Array)
+#2 /var/www/symfony/var/cache/prod/classes.php(6906): Monolog\Handler\FingersCrossedHandler->handle(Array)
+#3 /var/www/symfony/var/cache/prod/classes.php(7013): Monolog\Logger->addRecord(500, 'Uncaught PHP Ex...', Array)
+#4 /var/www/symfony/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/EventListener/ExceptionListener.php(89): Monolog\Logger->critical('Uncaught PHP Ex...', Array)
+#5 /var/www/symfony/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/EventListener/ExceptionListener.php(45): Symfony\Component\HttpKerne" while reading response header from upstream, client: ::ffff:172.20.0.1, server: symfony.dev, request: "GET / HTTP/1.1", upstream: "fastcgi://172.20.0.3:9001", host: "localhost:8080"
+2016/10/04 15:12:47 [error] 6#0: *1 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'The stream or file "/var/www/symfony/var/logs/prod.log" could not be opened: failed to open stream: Permission denied' in /var/www/symfony/var/cache/prod/classes.php:6478
+Stack trace:
+#0 /var/www/symfony/var/cache/prod/classes.php(6408): Monolog\Handler\StreamHandler->write(Array)
+#1 /var/www/symfony/var/cache/prod/classes.php(6592): Monolog\Handler\AbstractProcessingHandler->handle(Array)
+#2 /var/www/symfony/var/cache/prod/classes.php(6906): Monolog\Handler\FingersCrossedHandler->handle(Array)
+#3 /var/www/symfony/var/cache/prod/classes.php(7013): Monolog\Logger->addRecord(500, 'Uncaught PHP Ex...', Array)
+#4 /var/www/symfony/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/EventListener/ExceptionListener.php(89): Monolog\Logger->critical('Uncaught PHP Ex...', Array)
+#5 /var/www/symfony/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/EventListener/ExceptionListener.php(45): Symfony\Component\HttpKerne" while reading response header from upstream, client: ::ffff:172.20.0.1, server: symfony.dev, request: "GET / HTTP/1.1", upstream: "fastcgi://172.20.0.3:9001", host: "localhost:8080"
+2016/10/04 15:20:39 [error] 7#0: *1 connect() failed (111: Connection refused) while connecting to upstream, client: ::ffff:172.20.0.1, server: symfony.dev, request: "GET / HTTP/1.1", upstream: "fastcgi://172.20.0.3:9001", host: "localhost:8080"
+2016/10/04 15:26:36 [error] 7#0: *1 connect() failed (111: Connection refused) while connecting to upstream, client: ::ffff:172.20.0.1, server: symfony.dev, request: "GET / HTTP/1.1", upstream: "fastcgi://172.20.0.3:9001", host: "localhost:8080"
+2016/10/04 15:34:36 [error] 7#0: *1 connect() failed (111: Connection refused) while connecting to upstream, client: ::ffff:172.20.0.1, server: symfony.dev, request: "GET / HTTP/1.1", upstream: "fastcgi://172.20.0.3:9001", host: "localhost:8080"
