@@ -9,15 +9,6 @@ services:
             MYSQL_DATABASE: symfony
             MYSQL_USER: root
             MYSQL_PASSWORD: root
-    php:
-        build: ./php-fpm
-        expose:
-            - "9000"
-        volumes:
-            - ../:/var/www/symfony
-            - ./logs/symfony:/var/www/symfony/app/logs
-        links:
-            - db
     nginx:
         build: ./nginx
         ports:
@@ -38,3 +29,24 @@ services:
         volumes_from:
             - php
             - nginx
+    elasticsearch:
+      image: elasticsearch:1.7.5
+      ports:
+        - "9201:9200"
+        - "9301:9300"
+    php:
+        build: ./php-fpm
+        expose:
+            - "9000"
+        volumes:
+            - ../:/var/www/symfony
+            - ./logs/symfony:/var/www/symfony/app/logs
+        links:
+            - db
+            - elasticsearch
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        ports:
+            - "82:80"
+        links:
+            - db
