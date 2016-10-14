@@ -14,6 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  * @ORM\Table(name="post")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Post
 {
@@ -23,6 +24,23 @@ class Post
      * @ORM\Column(type="integer")
      */
     private $id;
+
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $createdAt;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="posts")
+     * @ORM\JoinColumn(referencedColumnName="id")
+     */
+    private $createdBy;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $lastEdition;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -45,6 +63,54 @@ class Post
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param mixed $createdAt
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy;
+    }
+
+    /**
+     * @param mixed $createdBy
+     */
+    public function setCreatedBy($createdBy)
+    {
+        $this->createdBy = $createdBy;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLastEdition()
+    {
+        return $this->lastEdition;
+    }
+
+    /**
+     * @param mixed $lastEdition
+     */
+    public function setLastEdition($lastEdition)
+    {
+        $this->lastEdition = $lastEdition;
     }
 
     /**
