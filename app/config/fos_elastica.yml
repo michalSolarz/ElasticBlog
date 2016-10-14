@@ -4,8 +4,10 @@ fos_elastica:
     indexes:
         app:
           types:
-            user:
+            post:
               mappings:
+                title: {type: string, boost: 3, fields: {raw: {type: string, index: not_analyzed}}}
+                contentStrip: ~
               persistence:
                 # the driver can be orm, mongodb, phpcr or propel
                 # listener and finder are not supported by

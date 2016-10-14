@@ -16,3 +16,4 @@
 /web/bundles/
 .idea
 docker-compose/logs
+/docker-compose/logs/nginx/
